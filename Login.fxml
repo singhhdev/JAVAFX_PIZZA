@@ -4,12 +4,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="244.0" prefWidth="429.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
    <children>
-      <TextField fx:id="usrID" blendMode="DARKEN" cache="true" cacheHint="SPEED" layoutX="107.0" layoutY="110.0" mouseTransparent="true" prefHeight="26.0" prefWidth="218.0" promptText="Enter your ASU ID" />
+      <TextField fx:id="usrID" blendMode="DARKEN" cache="true" cacheHint="SCALE" layoutX="107.0" layoutY="110.0" opacity="0.27" prefHeight="26.0" prefWidth="218.0" promptText="Enter your ASU ID" />
       <Label alignment="CENTER" layoutX="92.0" layoutY="35.0" prefHeight="43.0" prefWidth="246.0" text="Pizza Shop" textOverrun="LEADING_WORD_ELLIPSIS" wrapText="true">
          <font>
             <Font name="Ayuthaya" size="30.0" />
@@ -17,5 +18,6 @@
       </Label>
       <Button fx:id="loginButton" layoutX="165.0" layoutY="165.0" mnemonicParsing="false" onAction="#loginClicked" onMouseClicked="#loginClicked" prefHeight="33.0" prefWidth="103.0" text="Login" textOverrun="CENTER_ELLIPSIS" />
       <Text fx:id="authCheck" fill="#4aff36" layoutX="158.0" layoutY="235.0" onMouseClicked="#loginClicked" strokeType="OUTSIDE" strokeWidth="0.0" text="Awating ID" textAlignment="CENTER" wrappingWidth="116.0712890625" />
+      <Line endX="117.0" layoutX="208.0" layoutY="136.0" startX="-100.0" />
    </children>
 </AnchorPane>

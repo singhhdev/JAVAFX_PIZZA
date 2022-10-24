@@ -5,6 +5,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="305.0" prefWidth="598.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StudentController">
@@ -14,12 +15,12 @@
             <Font size="42.0" />
          </font>
       </Label>
-      <Button fx:id="orderPizzaButton" layoutX="421.0" layoutY="90.0" mnemonicParsing="false"  prefHeight="41.0" prefWidth="146.0" text="Order Here">
+      <Button fx:id="orderPizzaButton" layoutX="420.0" layoutY="90.0" mnemonicParsing="false" onMouseClicked="#sendOrder" prefHeight="41.0" prefWidth="146.0" text="Order Here">
          <font>
             <Font size="21.0" />
          </font>
       </Button>
-      <Button fx:id="statusButton" layoutX="421.0" layoutY="160.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="146.0" text="Status">
+      <Button fx:id="statusButton" layoutX="421.0" layoutY="160.0" mnemonicParsing="false" onMouseClicked="#changeStatus" prefHeight="41.0" prefWidth="146.0" text="Status">
          <font>
             <Font size="21.0" />
          </font>
@@ -29,10 +30,15 @@
             <Image url="@../../../../Desktop/pizza.jpeg" />
          </image>
       </ImageView>
-      <Button fx:id="signOut" layoutX="421.0" layoutY="224.0" mnemonicParsing="false" onMouseClicked="#logOut" prefHeight="41.0" prefWidth="146.0" text="Sign Out">
+      <Button fx:id="signOut" layoutX="421.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#logOut" prefHeight="41.0" prefWidth="146.0" text="Sign Out">
          <font>
             <Font size="21.0" />
          </font>
       </Button>
+      <Line endX="-101.20709228515625" endY="210.5" layoutX="502.0" layoutY="75.0" startX="-105.4141845703125" startY="23.0" />
+      <Line endX="-100.0" endY="216.5" layoutX="684.0" layoutY="69.0" startX="-100.0" startY="28.0" />
+      <Line endX="-83.0" endY="24.5" layoutX="503.0" layoutY="74.0" startX="-105.9141845703125" startY="24.5" />
+      <Line endX="81.5" endY="26.0" layoutX="502.0" layoutY="260.0" startX="-100.70709228515625" startY="26.0" />
+      <Line endX="-88.5" endY="24.5" layoutX="672.0" layoutY="72.0" startX="-105.9141845703125" startY="24.5" />
    </children>
 </AnchorPane>
