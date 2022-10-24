@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import jdk.net.SocketFlow;
 
 import java.io.IOException;
 
@@ -23,7 +24,7 @@ public class StudentController {
     @FXML
     Button statusButton;
     Alert logoutMessage = new Alert(Alert.AlertType.NONE);
-
+    String usrID;
     public void logOut(MouseEvent event) throws IOException {
         logoutMessage.setTitle("Logged Out");
         logoutMessage.setAlertType(Alert.AlertType.CONFIRMATION);
@@ -38,4 +39,26 @@ public class StudentController {
         stage.setScene(scene);
         stage.show();
     }
+    public void sendOrder(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader login = new FXMLLoader(getClass().getResource("resources/PizzaView.fxml"));
+        root = login.load();
+        PizzaController pizza =  login.getController();
+        pizza.setID(usrID);
+        stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+        stage.setTitle("Make Pizza");
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void changeStatus(MouseEvent mouseEvent) throws IOException {
+
+        FXMLLoader statusView = new FXMLLoader(getClass().getResource("resources/StatusView.fxml"));
+        root = statusView.load();
+        stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+        stage.setTitle("STATUS");
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }
