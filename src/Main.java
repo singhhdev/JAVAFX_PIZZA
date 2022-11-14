@@ -13,7 +13,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception
     {
         Parent home = FXMLLoader.load(getClass().getResource("resources/Login.fxml"));
-        Scene login = new Scene(home); // set the first secene here
+        Scene login = new Scene(home); 
+        
+        //starts with the welcome page
         primaryStage.setTitle("Pizza Order Page");
         primaryStage.setScene(login);
         primaryStage.show();
