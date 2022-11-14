@@ -12,10 +12,4 @@ public class Agent {
         orders = order.readOrders();
         return orders;
     }
-    public void displayOrdersToAgent(){
-    }
-    public void sendOrderToChef(){
-    }
-
-
 }
