@@ -43,16 +43,22 @@ public class AgentController implements Initializable {
     private Parent root;
    Alert logoutMessage = new Alert(Alert.AlertType.NONE);
 
-    public void displayOrders() throws FileNotFoundException {
+    public void displayOrders() throws FileNotFoundException 
+    {
      currentOrders = agent.getOrders();
    }
-   public void changeStatus(Pizza order) throws IOException {
+   
+   public void changeStatus(Pizza order) throws IOException 
+   {
       orders.changeAgentStatus(order);
    }
+   
    @Override
-   public void initialize(URL location, ResourceBundle resources) {
+   public void initialize(URL location, ResourceBundle resources)
+   {
       String[] pizzaView = new String[30];
-      try {
+      try 
+      {
          displayOrders();
       } catch (FileNotFoundException e) {
          throw new RuntimeException(e);
@@ -88,6 +94,7 @@ public class AgentController implements Initializable {
          {
                selectedOrder = listView.getSelectionModel().getSelectedItem();
                String[] items = selectedOrder.split("\\|");
+            
                // get the selected order from agent:
                String id = items[0];
                String status = "SENT TO CHEF";
@@ -138,7 +145,8 @@ public class AgentController implements Initializable {
     public void statusChanger(ActionEvent actionEvent) throws IOException {
         selectedOrder = listView.getSelectionModel().getSelectedItem();
         String[] items = selectedOrder.split("\\|");
-        // get the selected order from agent:
+       
+        // gets the selected orders from the agent
         String id = items[0];
         String status = "Preparing";
         String pizzaType = items[2];
@@ -149,6 +157,8 @@ public class AgentController implements Initializable {
         String time = items[7];
         Pizza sendToChef = new Pizza(pizzaType, mushroom, extraCheese,onion,olives,id,status, time);
         orders.changeAgentStatus(sendToChef);
+       
+        //sends the order to the chef from the agent
         //system.out.println("Order sent to chef!");
         logoutMessage.setTitle("Order Approved");
         logoutMessage.setAlertType(Alert.AlertType.CONFIRMATION);
@@ -156,7 +166,8 @@ public class AgentController implements Initializable {
         logoutMessage.show();
 
     }
-    public void signOut(MouseEvent mouseEvent) throws IOException {
+    public void signOut(MouseEvent mouseEvent) throws IOException 
+    {
 
         logoutMessage.setTitle("Logged Out");
         logoutMessage.setAlertType(Alert.AlertType.CONFIRMATION);
