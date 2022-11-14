@@ -16,12 +16,14 @@ import java.util.ResourceBundle;
 
 public class PizzaController implements Initializable {
 
+    //RadioButtons
     @FXML
     RadioButton cheese;
     @FXML
     RadioButton pepporini;
     @FXML
     RadioButton veggi;
+    
     //checkboxes
     @FXML
     CheckBox mushroom;
@@ -53,7 +55,8 @@ public class PizzaController implements Initializable {
     public void setID(String ID){
         usrID = ID;
     }
-    // now do the pizza being selected here:
+    
+    // we now select the pizza type and toppings:
     public void pizzaType(MouseEvent mouseEvent)
     {
 
@@ -72,26 +75,26 @@ public class PizzaController implements Initializable {
         if (veggi.isSelected()){
             cheese.setSelected(false);
             pepporini.setSelected(false);
-            //veggi.setSelected(true);
+            
             pizzaType = "Veggie";
         }
         if(mushroom.isSelected()){
             mushroomTopping = "Mushroom";
-            //System.out.println("Mushroom");
+           
         }
         if(extraCheese.isSelected()){
             extraCheeseTopping = "Extra-Cheese";
-           // System.out.println("Extra Chesse");
+           
 
         }
         if(onion.isSelected()){
             onionTopping = "Onion";
-            //System.out.println("Onion");
+            
 
         }
         if(olives.isSelected()){
             olivesTopping = "Olives";
-           // System.out.println("Olives");
+           
         }
     }
     @Override
@@ -111,6 +114,7 @@ public class PizzaController implements Initializable {
         return pizzaPickUpTime;
     }
 
+    
     public void finializeOrder(MouseEvent mouseEvent) throws IOException {
         Pizza newPizza = new Pizza(pizzaType,mushroomTopping,extraCheeseTopping, onionTopping, olivesTopping, usrID, "SENT", pizzaPickUpTime);
         newOrder.addNewOrder((newPizza)); // the order is added to the arraylist
