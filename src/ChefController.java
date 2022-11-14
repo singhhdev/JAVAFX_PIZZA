@@ -166,7 +166,7 @@ public class ChefController implements Initializable {
             String displayOrderr = idd + "|" + statuss + "|" + pizzaTypee + "|" + extraCheesee + "|" + mushroomm + "|" + olivess + "|" + onionn + "|" + time;
             pizzaViewv[x] = displayOrderr;
         }
-        listViewTwo.getItems().addAll(pizzaViewv);
+        listViewTwo.getItems().addAll(pizzaViewv); 
     }
 }
 
