@@ -91,14 +91,19 @@ public class Orders {
                 orders.get(x).status = order.status;     // for the agent view, if the order is
             }
         }
-        file.delete(); // delete the file
-        // write to file with the new arraylist!
-        printToFile(); // make new file again
+        
+        // delete the file
+        file.delete(); 
+        
+        // write to file with the new arraylist and makes the file again
+        printToFile(); 
     }
-    // will add the orders to the database arraylist
+    
+    // adds the orders to the database array list. 
     public void addNewOrder(Pizza order) throws IOException
     {
-        orders.add(order); // now the order is added here
+        //the orders now get added to the list 
+        orders.add(order); 
         printToFile();
     }
     public ArrayList<Pizza> getOrders(){
