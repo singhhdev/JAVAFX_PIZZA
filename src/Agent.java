@@ -6,15 +6,25 @@ import java.util.ArrayList;
 
 public class Agent {
     private Orders order = new Orders();
+    
+    //Array List made to store the orders made by the student
     private ArrayList<Pizza> orders = new ArrayList<Pizza>();
     private Pizza pizza = new Pizza();
-    public ArrayList<Pizza> getOrders() throws FileNotFoundException {
+    public ArrayList<Pizza> getOrders() throws FileNotFoundException 
+    {
         orders = order.readOrders();
+        
         return orders;
     }
-    public void displayOrdersToAgent(){
+    
+    //displays the orders to the agent
+    public void displayOrdersToAgent()
+    {
     }
-    public void sendOrderToChef(){
+    
+    //send the orders to the chef from the agent
+    public void sendOrderToChef()
+    {
     }
 
 
