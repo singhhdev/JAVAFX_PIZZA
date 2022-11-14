@@ -1,18 +1,20 @@
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.RadioButton;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class PizzaController {
+public class PizzaController implements Initializable {
 
     @FXML
     RadioButton cheese;
@@ -29,7 +31,8 @@ public class PizzaController {
     CheckBox onion;
     @FXML
     CheckBox olives;
-
+    @FXML
+    private ListView<String> listView = new ListView<String>();
     @FXML
     Button orderSend;
 
@@ -43,7 +46,7 @@ public class PizzaController {
     String usrID = null;
     Alert logoutMessage = new Alert(Alert.AlertType.NONE);
     Orders newOrder = new Orders();
-
+    private String pizzaPickUpTime = "" ;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -74,34 +77,54 @@ public class PizzaController {
         }
         if(mushroom.isSelected()){
             mushroomTopping = "Mushroom";
-            System.out.println("Mushroom");
+            //System.out.println("Mushroom");
         }
         if(extraCheese.isSelected()){
             extraCheeseTopping = "Extra-Cheese";
-            System.out.println("Extra Chesse");
+           // System.out.println("Extra Chesse");
 
         }
         if(onion.isSelected()){
             onionTopping = "Onion";
-            System.out.println("Onion");
+            //System.out.println("Onion");
 
         }
         if(olives.isSelected()){
             olivesTopping = "Olives";
-            System.out.println("Olives");
-
+           // System.out.println("Olives");
         }
     }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        String[] times = {"9:00 AM", "10:00 AM", "11:00 AM", "12:00 AM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM"};
+        listView.getItems().addAll(times);
+        pizzaPickUpTime = listView.getSelectionModel().getSelectedItem();
+        listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                pizzaPickUpTime = listView.getSelectionModel().getSelectedItem();
+            }
+        });
+    }
+
+    public String getPizzaTime(){
+        return pizzaPickUpTime;
+    }
+
     public void finializeOrder(MouseEvent mouseEvent) throws IOException {
-        Pizza newPizza = new Pizza(pizzaType,mushroomTopping,extraCheeseTopping, onionTopping, olivesTopping, usrID, "SENT");
+        Pizza newPizza = new Pizza(pizzaType,mushroomTopping,extraCheeseTopping, onionTopping, olivesTopping, usrID, "SENT", pizzaPickUpTime);
         newOrder.addNewOrder((newPizza)); // the order is added to the arraylist
 
         FXMLLoader login = new FXMLLoader(getClass().getResource("resources/StatusView.fxml"));
         root = login.load();
         StatusController changeCurrentStatus = login.getController();
         changeCurrentStatus.changeStatus(newPizza.status);
-    }
 
+        logoutMessage.setTitle("Pizza Order Created!");
+        logoutMessage.setAlertType(Alert.AlertType.CONFIRMATION);
+        logoutMessage.setContentText("Waiting Approval...");
+        logoutMessage.show();
+    }
     public void signOut(MouseEvent mouseEvent) throws IOException {
 
         logoutMessage.setTitle("Logged Out");

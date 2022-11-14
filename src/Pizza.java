@@ -9,10 +9,11 @@ public class Pizza {
 
     String usrID;
     String status;
+    String pizzaPickUptime;
     Pizza(){
 
     }
-    Pizza(String pizzaType, String mushroomTopping, String extraCheeseTopping, String onionTopping, String olivesTopping, String usrID, String status){
+    Pizza(String pizzaType, String mushroomTopping, String extraCheeseTopping, String onionTopping, String olivesTopping, String usrID, String status, String pizzaPickupTime){
         this.pizzaType = pizzaType;
         this.mushroomTopping = mushroomTopping;
         this.extraCheeseTopping = extraCheeseTopping;
@@ -20,6 +21,7 @@ public class Pizza {
         this.olivesTopping = olivesTopping;
         this.usrID = usrID;
         this.status = status;
+        this.pizzaPickUptime = pizzaPickupTime;
     }
 
     public void setStatus(String status){

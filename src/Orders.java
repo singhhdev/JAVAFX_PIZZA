@@ -23,7 +23,8 @@ public class Orders {
             String mushroom = items[4];
             String olives = items[5];
             String onion = items[6];
-            Pizza readPizzas = new Pizza(pizzaType, mushroom, extraCheese,onion,olives,id,status);
+            String time = items[7];
+            Pizza readPizzas = new Pizza(pizzaType, mushroom, extraCheese,onion,olives,id,status, time);
             sendAgentOrder.add(readPizzas);
         }
        // readFile.close();
@@ -69,33 +70,36 @@ public class Orders {
                     pw.print("-|");
                 }else{
                     pw.print(elem.onionTopping);
+                    pw.print("-|");
+                }
+                if(elem.pizzaPickUptime == " " ){
+                    pw.print("-|");
+                }else{
+                    pw.print(elem.pizzaPickUptime);
                 }
                 pw.println(" ");
             }
             pw.close();
     }
-    // for devnash and yagna ->
-    public void changeAgentStatus(Pizza order) throws FileNotFoundException {
-        // make an arraylist here of pizzas object
+    public void changeAgentStatus(Pizza order) throws IOException
+    {
         ArrayList<Pizza> newOrders = new ArrayList<Pizza>();
         newOrders = readOrders(); // all the orders stored in this temp file!
-        // first, we need to parse through the list of objects pizzas and change the status:
+        orders = newOrders;
         for(int x = 0; x < orders.size(); x ++){
             if(orders.get(x).usrID.equals(order.usrID)){
                 orders.get(x).status = order.status;     // for the agent view, if the order is
-                // now the order selected by the agent will have updated status here!
             }
         }
-        // clear the out.txt file
-
-
+        file.delete(); // delete the file
         // write to file with the new arraylist!
+        printToFile(); // make new file again
     }
     // will add the orders to the database arraylist
-    public void addNewOrder(Pizza order) throws IOException {
+    public void addNewOrder(Pizza order) throws IOException
+    {
         orders.add(order); // now the order is added here
         printToFile();
-        readOrders();
     }
     public ArrayList<Pizza> getOrders(){
         return this.orders;

@@ -80,6 +80,15 @@ public class LoginController
                 authCheck.setText("Logged In!");
 
                 // do the chef view here!
+                FXMLLoader chefPage = new FXMLLoader(getClass().getResource("/resources/ChefView.fxml"));
+                root = chefPage.load();
+                // AgentController agent = agentPage.getController();
+                // agent.displayOrders();
+                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                stage.setTitle("Welcome || Chef");
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
             }
         }else {
             actorWelcome.setAlertType(Alert.AlertType.ERROR);
