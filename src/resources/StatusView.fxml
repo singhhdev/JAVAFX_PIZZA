@@ -16,7 +16,7 @@
             <Cursor fx:constant="H_RESIZE" />
          </cursor>
       </Group>
-      <Text fx:id="realTimeStatus" layoutX="139.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status: " wrappingWidth="295.8142852783203">
+      <Text fx:id="realTimeStatus" layoutX="107.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status: " wrappingWidth="295.8142852783203">
          <font>
             <Font name="Ayuthaya" size="30.0" />
          </font>
@@ -27,8 +27,8 @@
             <Font name="Ayuthaya" size="30.0" />
          </font>
       </Text>
-      <Line endX="100.0" layoutX="253.0" layoutY="117.0" startX="-100.0" />
-      <Label layoutX="196.0" layoutY="138.0" text="Food time may vary">
+      <Line endX="100.0" layoutX="260.0" layoutY="191.0" startX="-100.0" />
+      <Label layoutX="196.0" layoutY="200.0" text="Food time may vary">
          <font>
             <Font name="System Italic" size="14.0" />
          </font>

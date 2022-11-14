@@ -3,15 +3,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="251.0" prefWidth="581.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PizzaController">
    <children>
@@ -22,15 +21,6 @@
       <CheckBox fx:id="onion" layoutX="243.0" layoutY="126.0" mnemonicParsing="false" onMouseClicked="#pizzaType" text="Onion" />
       <CheckBox fx:id="extraCheese" layoutX="243.0" layoutY="178.0" mnemonicParsing="false" onMouseClicked="#pizzaType" text="Extra Cheese" />
       <CheckBox fx:id="olives" layoutX="243.0" layoutY="153.0" mnemonicParsing="false" onMouseClicked="#pizzaType" text="Olives" />
-      <ScrollPane layoutX="364.0" layoutY="22.0" prefHeight="90.0" prefWidth="203.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="41.0" prefWidth="212.0">
-               <children>
-                  <Label layoutX="34.0" layoutY="14.0" text="UNDER CONSTRUCTION" />
-               </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
       <Label layoutX="18.0" layoutY="14.0" prefHeight="43.0" prefWidth="296.0" text="Make Your PIZZA">
          <font>
             <Font name="Ayuthaya" size="30.0" />
@@ -115,5 +105,7 @@
       </Button>
       <Line endX="77.0" layoutX="473.0" layoutY="211.0" startX="-92.0" />
       <Button layoutX="435.0" layoutY="218.0" mnemonicParsing="false" onMouseClicked="#signOut" text="SignOut" />
+      <ListView fx:id="listView" layoutX="378.0" layoutY="33.0" prefHeight="104.0" prefWidth="176.0" />
+      <Label layoutX="432.0" layoutY="14.0" text="Pick Up Time" />
    </children>
 </AnchorPane>

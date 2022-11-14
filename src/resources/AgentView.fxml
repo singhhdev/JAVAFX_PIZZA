@@ -10,10 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AgentController">
    <children>
-      <Button fx:id="sendToChefButton" layoutX="410.0" layoutY="150.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="151.0" text="Send To Chef">
+      <Button fx:id="sendToChefButton" layoutX="410.0" layoutY="150.0" mnemonicParsing="false" onAction="#statusChanger" prefHeight="65.0" prefWidth="151.0" text="Send To Chef">
          <font>
             <Font size="21.0" />
          </font>
@@ -34,13 +33,14 @@
             </LinearGradient>
          </textFill>
       </Button>
-      <Button fx:id="signOut" layoutX="436.0" layoutY="261.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="99.0" text="Sign Out" />
+      <Button fx:id="signOut" layoutX="436.0" layoutY="261.0" mnemonicParsing="false" onMouseClicked="#signOut" prefHeight="26.0" prefWidth="99.0" text="Sign Out" />
       <ListView fx:id="listView" layoutX="14.0" layoutY="92.0" prefHeight="294.0" prefWidth="382.0" />
-      <Text layoutX="106.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USRID | STATUS | TOPPINGS" wrappingWidth="170.0" />
-      <Label fx:id="setOrderLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="20.0" prefHeight="47.0" prefWidth="579.0">
+      <Text layoutX="75.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USRID | STATUS | TOPPINGS | PICKUP TIME" wrappingWidth="255.0" />
+      <Label fx:id="setOrderLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="20.0" prefHeight="47.0" prefWidth="579.0">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
+      <Button fx:id="refreshButton" layoutX="437.0" layoutY="226.0" mnemonicParsing="false" onAction="#refreshList" prefHeight="26.0" prefWidth="99.0" text="↻" />
    </children>
 </AnchorPane>
